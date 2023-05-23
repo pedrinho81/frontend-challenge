@@ -1,9 +1,9 @@
 import styles from './page.module.css'
-
+import { FilterBar } from '@/components/filter-bar'
 export default function Home() {
   return (
     <main className={styles.main}>
-      olá mundo
+     <FilterBar/>
     </main>
   )
 }
