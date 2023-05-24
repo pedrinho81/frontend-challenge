@@ -5,7 +5,7 @@ import { ArrowIcon } from "./arrow-icon";
 import { useState } from "react";
 import { useFilter } from "@/hooks/useFilter";
 import { PriorityTypes } from "@/types/priority-types";
-interface FilterByPriorityProps {}
+
 const FilterContainer = styled.div`
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@ const PriorityFilter = styled.ul`
   background: #ffffff;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-
+  z-index: 999;
   top: 100%;
 
   li {
@@ -53,7 +53,7 @@ const PriorityFilter = styled.ul`
   }
 `;
 
-export function FilterByPriority(props: FilterByPriorityProps) {
+export function FilterByPriority() {
   const [isOpen, setIsOpen] = useState(false);
   const { setPriority } = useFilter();
   const handleOpen = () => setIsOpen((prev) => !prev);
