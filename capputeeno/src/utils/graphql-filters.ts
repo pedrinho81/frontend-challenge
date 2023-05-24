@@ -13,3 +13,27 @@ export function getFieldByPriority(priority: PriorityTypes) {
   if(priority === PriorityTypes.MINOR_PRICE) return {field: "price_in_cents", order: "DESC"}
   return {field: "sales", order: "ASC"}
 }
+
+export const mountQuery = (type: FilterType, priority: PriorityTypes) => {
+  if (type === FilterType.ALL && priority === PriorityTypes.POPULARITY)
+    return `
+  query {
+    allProducts(sortField: "sales", sortOrder: "DSC") {
+      id
+      name
+      price_in_cents
+      image_url
+    }
+  }
+  `;
+  const sortSettings = getFieldByPriority(priority)
+  const categoryFilter = getCategoryByType(type)
+  return `query {
+    allProducts(sortField: "${sortSettings.field}", sortOrder: "${sortSettings.order}", ${categoryFilter ? `filter: {category: "${categoryFilter}"}` : ''}) {
+      id
+      name
+      price_in_cents
+      image_url
+    }
+  }`;
+};
