@@ -29,19 +29,19 @@ const FilterContainer = styled.div`
 
 const PriorityFilter = styled.ul`
   position: absolute;
-  padding: 12px 16px;
-  width: 176px;
+  padding: 0.75rem 1rem;
+  width: 11rem;
   background: #ffffff;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  box-shadow: 0rem 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
   z-index: 999;
   top: 100%;
-
+  right: 0.5rem;
   li {
     color: var(--text-dark);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
-    line-height: 22px;
+    line-height: 1.375rem;
     cursor: pointer;
     :hover {
       font-weight: bold;
@@ -49,7 +49,7 @@ const PriorityFilter = styled.ul`
   }
 
   li + li {
-    margin-top: 4px;
+    margin-top: 0.25rem;
   }
 `;
 

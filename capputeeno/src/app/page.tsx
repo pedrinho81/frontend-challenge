@@ -1,15 +1,26 @@
-"use client"
+"use client";
 
 import { ProductsList } from "@/components/products-list";
-import styles from "./page.module.css";
+import  styled from "styled-components";
 import { FilterBar } from "@/components/filter-bar";
 
-export default function Home() {
+const PageWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 24px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
 
+  @media (min-width: ${props => props.theme.desktopBreakpoint}) {
+    padding: 2.125rem 10rem;
+  }
+`;
+export default function Home() {
   return (
-      <main className={styles.main}>
-        <FilterBar />
-        <ProductsList />
-      </main>
+    <PageWrapper>
+      <FilterBar />
+      <ProductsList />
+    </PageWrapper>
   );
 }
