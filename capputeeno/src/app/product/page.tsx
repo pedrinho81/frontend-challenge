@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 import { CartIcon } from "@/components/icons/cart-icon";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -97,8 +98,31 @@ export default function Product({
   searchParams: { id: string };
 }) {
   const { data } = useProduct(searchParams.id);
-  console.log(searchParams.id);
-  console.log(data);
+
+  const handleAddToCart = () => {
+    let cartItems = localStorage.getItem("@capputeeno: cart-items");
+    if (cartItems) {
+      let cartItemsArray = JSON.parse(cartItems);
+      let existingProductIndex = cartItemsArray.findIndex(
+        (item: { id: string }) => item.id === searchParams.id
+      );
+      if (existingProductIndex != -1) {
+        cartItemsArray[existingProductIndex].quantity += 1;
+      } else {
+        cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
+      }
+      localStorage.setItem("@capputeeno: cart-items", JSON.stringify(cartItemsArray));
+    } else {
+      const newCart = [
+        {
+          ...data,
+          id: searchParams.id,
+          quantity: 1,
+        },
+      ];
+      localStorage.setItem("@capputeeno: cart-items", JSON.stringify(newCart));
+    }
+  };
 
   return (
     <Container>
@@ -119,10 +143,10 @@ export default function Product({
               <p>{data?.description}</p>
             </div>
           </ProductInfo>
-            <button>
-              <ShoppingBagIcon />
-              Adicionar ao carrinho
-            </button>
+          <button onClick={handleAddToCart}>
+            <ShoppingBagIcon />
+            Adicionar ao carrinho
+          </button>
         </div>
       </section>
     </Container>

@@ -19,7 +19,7 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const { value } = useLocalStorage('cart-items', [])
+  const { value } = useLocalStorage('@capputeeno: cart-items', [])
   return (
     <Container>
       <CartIcon />
