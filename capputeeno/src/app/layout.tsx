@@ -2,6 +2,8 @@ import "./globals.css";
 import { Saira } from "next/font/google";
 import { Header } from "@/components/header";
 import { DefaultProviders } from "@/components/default-providers";
+import { DefaultPageLayout } from "@/components/default-page-layout";
+
 const saira = Saira({
   weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
@@ -22,7 +24,7 @@ export default function RootLayout({
       <body className={saira.className}>
         <DefaultProviders>
           <Header />
-          {children}
+          <DefaultPageLayout>{children}</DefaultPageLayout>
         </DefaultProviders>
       </body>
     </html>

@@ -14,7 +14,7 @@ export function getFieldByPriority(priority: PriorityTypes) {
   return {field: "sales", order: "ASC"}
 }
 
-export const mountQuery = (type: FilterType, priority: PriorityTypes) => {
+export const  mountQuery = (type: FilterType, priority: PriorityTypes) => {
   if (type === FilterType.ALL && priority === PriorityTypes.POPULARITY)
     return `
   query {
