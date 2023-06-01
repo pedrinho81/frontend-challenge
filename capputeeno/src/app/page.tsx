@@ -3,6 +3,7 @@
 import { ProductsList } from "@/components/products-list";
 import styled from "styled-components";
 import { FilterBar } from "@/components/filter-bar";
+import { DefaultPageLayout } from "@/components/default-page-layout";
 
 const PageWrapper = styled.main`
   display: flex;
@@ -11,9 +12,11 @@ const PageWrapper = styled.main`
 `;
 export default function Home() {
   return (
+    <DefaultPageLayout>
       <PageWrapper>
         <FilterBar />
         <ProductsList />
       </PageWrapper>
+    </DefaultPageLayout>
   );
 }

@@ -7,6 +7,7 @@ import { formatPrice } from "@/utils/formatPrice";
 import { CartIcon } from "@/components/icons/cart-icon";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { DefaultPageLayout } from "@/components/default-page-layout";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -111,7 +112,10 @@ export default function Product({
       } else {
         cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
       }
-      localStorage.setItem("@capputeeno: cart-items", JSON.stringify(cartItemsArray));
+      localStorage.setItem(
+        "@capputeeno: cart-items",
+        JSON.stringify(cartItemsArray)
+      );
     } else {
       const newCart = [
         {
@@ -125,30 +129,32 @@ export default function Product({
   };
 
   return (
-    <Container>
-      <BackBtn navigate="/" />
-      <section>
-        <img src={data?.image_url} alt="" />
-        <div>
-          <ProductInfo>
-            <span>{data?.category}</span>
-            <h2>{data?.name}</h2>
-            <span> {formatPrice(data?.price_in_cents ?? 0)}</span>
-            <p>
-              *Frete de R$40,00 para todo o Brasil. Grátis para compras acima de
-              R$900,00.
-            </p>
-            <div>
-              <h3>Descrição</h3>
-              <p>{data?.description}</p>
-            </div>
-          </ProductInfo>
-          <button onClick={handleAddToCart}>
-            <ShoppingBagIcon />
-            Adicionar ao carrinho
-          </button>
-        </div>
-      </section>
-    </Container>
+    <DefaultPageLayout>
+      <Container>
+        <BackBtn navigate="/" />
+        <section>
+          <img src={data?.image_url} alt="" />
+          <div>
+            <ProductInfo>
+              <span>{data?.category}</span>
+              <h2>{data?.name}</h2>
+              <span> {formatPrice(data?.price_in_cents ?? 0)}</span>
+              <p>
+                *Frete de R$40,00 para todo o Brasil. Grátis para compras acima
+                de R$900,00.
+              </p>
+              <div>
+                <h3>Descrição</h3>
+                <p>{data?.description}</p>
+              </div>
+            </ProductInfo>
+            <button onClick={handleAddToCart}>
+              <ShoppingBagIcon />
+              Adicionar ao carrinho
+            </button>
+          </div>
+        </section>
+      </Container>
+    </DefaultPageLayout>
   );
 }
