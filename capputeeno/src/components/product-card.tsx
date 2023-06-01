@@ -42,7 +42,7 @@ const Card = styled.div`
     justify-content: center;
     flex-direction: column;
     padding: 8px 0;
-    width: 228px
+    width: 228px;
   }
 `;
 export function ProductCard(props: ProductCardProps) {
@@ -50,11 +50,11 @@ export function ProductCard(props: ProductCardProps) {
   const handleNavigate = (id: string) => router.push(`/product/?id=${id}`);
   const price = formatPrice(props.price);
   return (
-    <Card onClick={ () => handleNavigate(props.id)}>
+    <Card onClick={() => handleNavigate(props.id)}>
       <img src={props.image} alt="" />
       <div>
         <h3>{props.title}</h3>
-        <Divider/>
+        <Divider />
         <p>{price}</p>
       </div>
     </Card>

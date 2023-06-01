@@ -22,10 +22,10 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const { cartItems  } = useContext(CartContext)
+  const { cartItems } = useContext(CartContext);
 
-  const router = useRouter()
-  const handleNavigate = () => router.push('/cart')
+  const router = useRouter();
+  const handleNavigate = () => router.push("/cart");
   return (
     <Container onClick={handleNavigate}>
       <CartIcon />

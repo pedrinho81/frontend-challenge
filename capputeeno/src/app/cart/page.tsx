@@ -53,11 +53,8 @@ const CartList = styled.ul`
   margin-top: 24px;
 `;
 
-
-
 export default function CartPage() {
-  const {cartItems, updateLocalStorage} = useContext(CartContext)
-  
+  const { cartItems, updateLocalStorage } = useContext(CartContext);
 
   const calculateTotal = (cartItems: ProductInCart[]): number => {
     return cartItems.reduce(
@@ -66,7 +63,6 @@ export default function CartPage() {
     );
   };
   const cartTotal = formatPrice(calculateTotal(cartItems));
-
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
     const newValue = cartItems.map((item) => {
@@ -81,16 +77,15 @@ export default function CartPage() {
       if (item.id !== id) return item;
     });
     updateLocalStorage(newValue);
-  }; 
+  };
 
   return (
     <DefaultPageLayout>
       <Container>
-        
         <CartListContainer>
           <BackBtn navigate="/" />
           <h3>Seu carrinho</h3>
-           <p>
+          <p>
             Total ({cartItems.length}) produtos
             <span>{cartTotal}</span>
           </p>
@@ -105,7 +100,7 @@ export default function CartPage() {
             ))}
           </CartList>
         </CartListContainer>
-        <CartResume calculateTotal={calculateTotal(cartItems)}/> 
+        <CartResume calculateTotal={calculateTotal(cartItems)} />
       </Container>
     </DefaultPageLayout>
   );

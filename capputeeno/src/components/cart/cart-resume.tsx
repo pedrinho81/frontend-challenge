@@ -1,4 +1,5 @@
 "use client";
+
 import { Divider } from "@/components/divider";
 import { styled } from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";

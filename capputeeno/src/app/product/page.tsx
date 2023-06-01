@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+
 import { BackBtn } from "@/components/back-button";
 import { useProduct } from "@/hooks/useProduct";
 import styled from "styled-components";
@@ -14,14 +15,14 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  
+
   section {
     display: flex;
     width: 100%;
     gap: 32px;
     margin-top: 24px;
     flex-direction: column;
-    @media (min-width: ${props => props.theme.tabletBreakpoint}) {
+    @media (min-width: ${(props) => props.theme.tabletBreakpoint}) {
       flex-direction: row;
       img {
         max-width: 640px;
@@ -73,7 +74,7 @@ const ProductInfo = styled.div`
   h2 {
     font-weight: 300;
     font-size: 24px;
-    @media (min-width: ${props => props.theme.tabletBreakpoint}) {
+    @media (min-width: ${(props) => props.theme.tabletBreakpoint}) {
       font-size: 32px;
     }
     line-height: 150%;
@@ -134,11 +135,13 @@ export default function Product({
       updateLocalStorage(cartItemsArray);
     } else {
       data &&
-        updateLocalStorage([{
-          ...data,
-          id: searchParams.id,
-          quantity: 1,
-        }]);
+        updateLocalStorage([
+          {
+            ...data,
+            id: searchParams.id,
+            quantity: 1,
+          },
+        ]);
     }
   };
 

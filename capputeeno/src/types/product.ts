@@ -1,17 +1,17 @@
 export interface Product {
-  id: string,
-  name: string,
-  price_in_cents: number,
-  image_url: string,
-  description?: string,
-  category?: string
+  id: string;
+  name: string;
+  price_in_cents: number;
+  image_url: string;
+  description?: string;
+  category?: string;
 }
 
 export interface ProductInCart extends Product {
-  quantity: number
+  quantity: number;
 }
-export interface  ProductFetchResponse {
+export interface ProductFetchResponse {
   data: {
-    Product: Product
-  }
+    Product: Product;
+  };
 }

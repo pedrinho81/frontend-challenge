@@ -22,7 +22,7 @@ export function useProduct(id: string) {
     queryFn: () => fetcher(id),
     queryKey: ["product", id],
     enabled: !!id,
-    staleTime: 1000 * 60
+    staleTime: 1000 * 60,
   });
   return {
     data: data?.data?.data?.Product,

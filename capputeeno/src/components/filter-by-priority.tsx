@@ -57,7 +57,7 @@ export function FilterByPriority() {
   const [isOpen, setIsOpen] = useState(false);
   const { setPriority } = useFilter();
   const handleOpen = () => setIsOpen((prev) => !prev);
-  
+
   const handleUpdatePriority = (value: PriorityTypes) => {
     setPriority(value);
     setIsOpen(false);
