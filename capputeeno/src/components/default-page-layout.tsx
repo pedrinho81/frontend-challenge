@@ -3,7 +3,7 @@
 import { styled } from "styled-components";
 
 export const DefaultPageLayout = styled.div`
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
   min-height: 100vh;
   background-color: var(--bg-primary);
 

@@ -15,25 +15,25 @@ const Card = styled.div`
   justify-content: center;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.4);
-  border-radius: 0px 0px 4px 4px;
+  border-radius: 0px 0px 0.25rem 0.25rem;
   cursor: pointer;
   backdrop-filter: blur(10px);
-  width: 256px;
-  height: 378px;
+  width: 16rem;
+  height: 23.625rem;
   img {
-    width: 256px;
-    height: 300px;
-    border-radius: 4px 4px 0px 0px;
+    width: 16rem;
+    height: 18.75rem;
+    border-radius: 0.25rem 0.25rem 0px 0px;
   }
   h3 {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 150%;
     color: var(--text-dark-2);
   }
   p {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--shapes-dark);
   }
   div {
@@ -41,8 +41,8 @@ const Card = styled.div`
     align-items: start;
     justify-content: center;
     flex-direction: column;
-    padding: 8px 0;
-    width: 228px;
+    padding: 0.5rem 0;
+    width: 14.25rem;
   }
 `;
 export function ProductCard(props: ProductCardProps) {

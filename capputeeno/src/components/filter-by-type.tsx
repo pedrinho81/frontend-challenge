@@ -11,9 +11,9 @@ const FilterList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 0.625rem;
   @media (min-width: ${(props) => props.theme.mobileBreakpoint}) {
-    gap: 40px;
+    gap: 2.5rem;
     flex-wrap: nowrap;
   }
 `;
@@ -22,8 +22,8 @@ const FilterItem = styled.li<FilterItemProps>`
   font-family: inherit;
   font-style: normal;
   font-weight: ${(props) => (props.selected ? "600" : "400")};
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
   cursor: pointer;
 
   text-align: center;
@@ -32,11 +32,11 @@ const FilterItem = styled.li<FilterItemProps>`
   color: var(--text-dark);
 
   border-bottom: ${(props) =>
-    props.selected ? "4px solid var(--orange-low)" : ""};
+    props.selected ? "0.25rem solid var(--orange-low)" : ""};
 
   @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
-    line-height: 22px;
-    font-size: 16px;
+    line-height: 1.375rem;
+    font-size: 1rem;
   }
 `;
 

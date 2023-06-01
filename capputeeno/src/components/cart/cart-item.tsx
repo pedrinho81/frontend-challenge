@@ -16,17 +16,17 @@ const Item = styled.li`
   align-items: center;
   justify-content: center;
   min-width: 100%;
-  height: 210px;
+  height: 13.125rem;
 
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: white;
 
   position: relative;
 
   button {
     position: absolute;
-    top: 16px;
-    right: 24px;
+    top: 1rem;
+    right: 1.5rem;
 
     border: none;
     background: transparent;
@@ -35,8 +35,8 @@ const Item = styled.li`
 
   img {
     max-height: 100%;
-    width: 256px;
-    border-radius: 8px 0 0 8px;
+    width: 16rem;
+    border-radius: 0.5rem 0 0 0.5rem;
   }
 
   > div {
@@ -46,18 +46,18 @@ const Item = styled.li`
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: column;
-    padding: 16px 24px;
+    padding: 1rem 1.5rem;
     line-height: 150%;
     color: var(--text-dark-2);
 
     h4 {
       font-weight: 300;
-      font-size: 20px;
+      font-size: 1.25rem;
     }
 
     p {
       font-weight: 400;
-      font-size: 12px;
+      font-size: 0.75rem;
       max-height: 50%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -71,7 +71,7 @@ const Item = styled.li`
 
       span {
         font-weight: 600;
-        font-size: 16px;
+        font-size: 1rem;
         color: var(--shapes-dark);
       }
     }
@@ -79,13 +79,13 @@ const Item = styled.li`
 `;
 
 const SelectQuantity = styled.select`
-  padding: 8px 10px;
-  border: 1.5px solid var(--border-color);
-  border-radius: 8px;
+  padding: 0.5rem 0.625rem;
+  border: 0.0938rem solid var(--border-color);
+  border-radius: 0.5rem;
   background-color: var(--bg-secondary);
   color: var(--text-dark);
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
 `;
 
 export function CartItem({

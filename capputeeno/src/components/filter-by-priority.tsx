@@ -15,14 +15,14 @@ const FilterContainer = styled.div`
     background: transparent;
     font-family: inherit;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 22px;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
     color: var(--text-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     svg {
-      margin-left: 8px;
+      margin-left: 0.5rem;
     }
   }
 `;

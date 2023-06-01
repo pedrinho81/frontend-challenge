@@ -19,8 +19,8 @@ const Container = styled.div`
   section {
     display: flex;
     width: 100%;
-    gap: 32px;
-    margin-top: 24px;
+    gap: 2rem;
+    margin-top: 1.5rem;
     flex-direction: column;
     @media (min-width: ${(props) => props.theme.tabletBreakpoint}) {
       flex-direction: row;
@@ -67,34 +67,34 @@ const ProductInfo = styled.div`
   flex-direction: column;
   span {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--text-dark-2);
     line-height: 150%;
   }
   h2 {
     font-weight: 300;
-    font-size: 24px;
+    font-size: 1.5rem;
     @media (min-width: ${(props) => props.theme.tabletBreakpoint}) {
-      font-size: 32px;
+      font-size: 2rem;
     }
     line-height: 150%;
     color: var(--text-dark-2);
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
   span:nth-of-type(2) {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 150%;
     color: var(--shapes-dark);
     margin-bottom: 1.5rem;
   }
   p {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: var(--text-dark-2);
   }
   div {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     h3 {
       text-transform: uppercase;
       margin-top: 3.625rem;

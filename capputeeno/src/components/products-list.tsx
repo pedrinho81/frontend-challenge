@@ -7,9 +7,9 @@ import { styled } from "styled-components";
 const ListContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 256px);
-  grid-gap: 32px;
+  grid-gap: 2rem;
   width: 100%;
-  margin-top: 32px;
+  margin-top: 2rem;
 `;
 export function ProductsList() {
   const { data } = useProducts();

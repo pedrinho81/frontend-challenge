@@ -14,7 +14,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
 
   @media (min-width: ${(props) => props.theme.desktopBreakpoint}) {
     flex-direction: row;
@@ -23,23 +23,23 @@ const Container = styled.div`
 
 const CartListContainer = styled.div`
   h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 150%;
     text-transform: uppercase;
     color: var(--text-dark-2);
-    margin-top: 24px;
+    margin-top: 1.5rem;
   }
 
   p {
     font-weight: 300;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 150%;
     color: var(--text-dark-2);
 
     span {
       font-weight: 600;
-      margin-left: 4px;
+      margin-left: 0.25rem;
     }
   }
 `;
@@ -49,8 +49,8 @@ const CartList = styled.ul`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 24px;
+  gap: 1rem;
+  margin-top: 1.5rem;
 `;
 
 export default function CartPage() {

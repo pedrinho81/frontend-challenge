@@ -13,7 +13,7 @@ const CartResultContainer = styled.div`
   justify-content: space-between;
   min-width: 22rem;
   max-height: 43.75rem;
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   background: white;
   div {
     width: 100%;
@@ -21,21 +21,21 @@ const CartResultContainer = styled.div`
 
   h3 {
     font-weight: 600;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--text-dark-2);
     text-transform: uppercase;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
   ul {
     color: var(--text-dark);
     text-decoration: underline;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 150%;
     cursor: pointer;
     li ~ li {
-      margin-top: 12px;
+      margin-top: 0.75rem;
     }
   }
 `;
@@ -47,20 +47,20 @@ const TotalItem = styled.div<{ isBold?: boolean }>`
   width: 100%;
 
   font-weight: ${(props) => (props.isBold ? "600" : "400")};
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 150%;
 
-  margin-bottom: 12px;
+  margin-bottom: 0.75rem;
 `;
 
 const ShopBtn = styled.button`
   color: white;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: var(--success-color);
-  padding: 12px;
+  padding: 0.75rem;
   width: 100%;
   border: none;
-  margin-top: 40px;
+  margin-top: 2.5rem;
   cursor: pointer;
   font-weight: 500;
 `;

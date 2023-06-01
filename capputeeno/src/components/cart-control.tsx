@@ -5,15 +5,15 @@ import { useContext } from "react";
 import { CartContext } from "@/contexts/cart-context";
 
 const CartCount = styled.span`
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 100%;
-  padding: 0 5px;
+  padding: 0 0.3125rem;
   background-color: var(--delete-color);
   color: #fff;
-  margin-left: -10px;
+  margin-left: -0.625rem;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 0.625rem;
 `;
 
 const Container = styled.div`
