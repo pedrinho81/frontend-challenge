@@ -14,21 +14,32 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
+  
   section {
     display: flex;
     width: 100%;
     gap: 32px;
     margin-top: 24px;
+    flex-direction: column;
+    @media (min-width: ${props => props.theme.tabletBreakpoint}) {
+      flex-direction: row;
+      img {
+        max-width: 640px;
+        width: 50%;
+      }
+      > div {
+        width: 50%;
+      }
+    }
     img {
-      max-width: 640px;
-      width: 50%;
+      max-width: 100%;
+      width: 100%;
     }
     > div {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-
+      width: 100%;
       button {
         display: flex;
         align-items: center;
@@ -61,7 +72,10 @@ const ProductInfo = styled.div`
   }
   h2 {
     font-weight: 300;
-    font-size: 32px;
+    font-size: 24px;
+    @media (min-width: ${props => props.theme.tabletBreakpoint}) {
+      font-size: 32px;
+    }
     line-height: 150%;
     color: var(--text-dark-2);
     margin-top: 12px;
@@ -79,6 +93,7 @@ const ProductInfo = styled.div`
     color: var(--text-dark-2);
   }
   div {
+    margin-bottom: 30px;
     h3 {
       text-transform: uppercase;
       margin-top: 3.625rem;
