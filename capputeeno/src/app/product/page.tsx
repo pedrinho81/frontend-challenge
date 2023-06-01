@@ -4,10 +4,11 @@ import { BackBtn } from "@/components/back-button";
 import { useProduct } from "@/hooks/useProduct";
 import styled from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
-import { CartIcon } from "@/components/icons/cart-icon";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { DefaultPageLayout } from "@/components/default-page-layout";
+import { useContext } from "react";
+import { CartContext } from "@/contexts/cart-context";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -98,33 +99,31 @@ export default function Product({
 }: {
   searchParams: { id: string };
 }) {
+  const { cartItems, updateLocalStorage } = useContext(CartContext);
   const { data } = useProduct(searchParams.id);
 
   const handleAddToCart = () => {
-    let cartItems = localStorage.getItem("@capputeeno: cart-items");
-    if (cartItems) {
-      let cartItemsArray = JSON.parse(cartItems);
+    const hasProductsInCart = cartItems.length > 0;
+    if (hasProductsInCart) {
+      let cartItemsArray = [...cartItems];
       let existingProductIndex = cartItemsArray.findIndex(
         (item: { id: string }) => item.id === searchParams.id
       );
+
       if (existingProductIndex != -1) {
         cartItemsArray[existingProductIndex].quantity += 1;
       } else {
-        cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
+        data &&
+          cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
       }
-      localStorage.setItem(
-        "@capputeeno: cart-items",
-        JSON.stringify(cartItemsArray)
-      );
+      updateLocalStorage(cartItemsArray);
     } else {
-      const newCart = [
-        {
+      data &&
+        updateLocalStorage([{
           ...data,
           id: searchParams.id,
           quantity: 1,
-        },
-      ];
-      localStorage.setItem("@capputeeno: cart-items", JSON.stringify(newCart));
+        }]);
     }
   };
 

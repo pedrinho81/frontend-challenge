@@ -4,9 +4,10 @@ import { BackBtn } from "@/components/back-button";
 import { CartItem } from "@/components/cart/cart-item";
 import { CartResume } from "@/components/cart/cart-resume";
 import { DefaultPageLayout } from "@/components/default-page-layout";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { CartContext } from "@/contexts/cart-context";
 import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/formatPrice";
+import { useContext } from "react";
 import { styled } from "styled-components";
 
 const Container = styled.div`
@@ -55,22 +56,20 @@ const CartList = styled.ul`
 
 
 export default function CartPage() {
-  const { value, updateLocalStorage } = useLocalStorage<ProductInCart[]>(
-    "@capputeeno: cart-items",
-    []
-  );
+  const {cartItems, updateLocalStorage} = useContext(CartContext)
+  
 
-  const calculateTotal = (value: ProductInCart[]): number => {
-    return value.reduce(
+  const calculateTotal = (cartItems: ProductInCart[]): number => {
+    return cartItems.reduce(
       (sum, item) => (sum += item.price_in_cents * item.quantity),
       0
     );
   };
-  const cartTotal = formatPrice(calculateTotal(value));
+  const cartTotal = formatPrice(calculateTotal(cartItems));
 
 
   const handleUpdateQuantity = (id: string, quantity: number) => {
-    const newValue = value.map((item) => {
+    const newValue = cartItems.map((item) => {
       if (item.id !== id) return item;
       return { ...item, quantity: quantity };
     });
@@ -78,24 +77,25 @@ export default function CartPage() {
   };
 
   const handleDeleteItem = (id: string) => {
-    const newValue = value.filter((item) => {
+    const newValue = cartItems.filter((item) => {
       if (item.id !== id) return item;
     });
     updateLocalStorage(newValue);
-  };
+  }; 
 
   return (
     <DefaultPageLayout>
       <Container>
+        
         <CartListContainer>
           <BackBtn navigate="/" />
           <h3>Seu carrinho</h3>
-          <p>
-            Total ({value.length}) produtos
+           <p>
+            Total ({cartItems.length}) produtos
             <span>{cartTotal}</span>
           </p>
           <CartList>
-            {value.map((item) => (
+            {cartItems.map((item) => (
               <CartItem
                 product={item}
                 key={item.id}
@@ -105,7 +105,7 @@ export default function CartPage() {
             ))}
           </CartList>
         </CartListContainer>
-        <CartResume calculateTotal={calculateTotal(value)}/> 
+        <CartResume calculateTotal={calculateTotal(cartItems)}/> 
       </Container>
     </DefaultPageLayout>
   );
