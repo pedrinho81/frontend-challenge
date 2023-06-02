@@ -1,17 +1,16 @@
 "use client";
-import { FilterType } from "@/types/filter-types";
+import { FilterTypes } from "@/types/filter-types";
 import { PriorityTypes } from "@/types/priority-types";
 import { createContext, useState } from "react";
-//alterar este context para uma interface
 export const FilterContext = createContext({
   search: "",
   page: 1,
-  type: FilterType.ALL,
+  type: FilterTypes.ALL,
   priority: PriorityTypes.POPULARITY,
   setPriority: (value: PriorityTypes) => {},
   setSearch: (value: string) => {},
   setPage: (value: number) => {},
-  setType: (value: FilterType) => {},
+  setType: (value: FilterTypes) => {},
 });
 
 interface ProviderProps {
@@ -21,8 +20,8 @@ interface ProviderProps {
 export function FilterContextProvider({ children }: ProviderProps) {
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [type, setType] = useState(FilterType.ALL);
-  const [priority, setPriority] = useState(PriorityTypes.NEWS);
+  const [type, setType] = useState(FilterTypes.ALL);
+  const [priority, setPriority] = useState(PriorityTypes.POPULARITY);
 
   return (
     <FilterContext.Provider

@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { EnumType } from "typescript";
 import { BackPageIcon } from "./icons/back-page-icon";
 import { NextPageIcon } from "./icons/next-page-icon";
+import { useFilter } from "@/hooks/useFilter";
 
 interface CountProps {
   selected?: boolean;
@@ -40,7 +41,7 @@ const Select = styled(Count)`
   }
 `;
 export function Pagination() {
-  const { page, setPage } = useContext(FilterContext);
+  const { page, setPage } = useFilter();
 
   const handleSelectPage = (value: number) => {
     setPage(value);
