@@ -7,11 +7,11 @@ Bem-vindo! Este repositório contém minha solução para o Desafio Frontend ope
 
 O desafio será implementar um e-commerce para venda de canecas e camisetas que deverá ter as seguintes funcionalidades:
 
-- [ ] Catálogo de produtos com paginação
+- [X] Catálogo de produtos com paginação
 - [X] Filtragem produtos por categoria
 - [X] Busca por nome do produto
-- [ ] Adicionar e remover produtos do carrinho
-- [ ] Finalizar compra
+- [X] Adicionar e remover produtos do carrinho
+- [X] Finalizar compra
 
 ## 📋 Requisitos
 
