@@ -23,36 +23,34 @@ O desafio será implementar um e-commerce para venda de canecas e camisetas que 
 ## 🖥️ Instalação 
 
 ### Frontend
+ Clone este repositório
 
-    Clone este repositório
+    git clone https://github.com/pedrinho81/frontend-challenge.git
 
-git clone https://github.com/pedrinho81/frontend-challenge.git
+  Vá até a pasta do projeto
 
-    Vá até a pasta do projeto
+    cd frontend-challenge
+    cd capputeeno
 
-cd frontend-challenge
-cd capputeeno
+  Instale as dependências
 
-    Instale as dependências
+    yarn
 
-yarn
+   Inicie o Frontend
 
-    Inicie o Frontend
-
-yarn dev
+    yarn dev
 
 ### Iniciando a API
 
-    Vá até a pasta da API
+   Vá até a pasta da API
 
-cd frontend-challenge
-cd api
+    cd frontend-challenge
+    cd api
 
-    Instale as dependências
+   Instale as dependências
 
-npm install
+    npm install
 
-    Inicie a API
+   Inicie a API
 
-npm start
-
+    npm start
