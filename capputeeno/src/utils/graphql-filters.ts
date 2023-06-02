@@ -1,9 +1,9 @@
-import { FilterType } from "@/types/filter-types";
+import { FilterTypes } from "@/types/filter-types";
 import { PriorityTypes } from "@/types/priority-types";
 
-export function getCategoryByType(type: FilterType) {
-  if (type === FilterType.MUG) return "mugs";
-  if (type === FilterType.SHIRT) return "t-shirts";
+export function getCategoryByType(type: FilterTypes) {
+  if (type === FilterTypes.MUG) return "mugs";
+  if (type === FilterTypes.SHIRT) return "t-shirts";
   return "";
 }
 
@@ -17,9 +17,9 @@ export function getFieldByPriority(priority: PriorityTypes) {
   return { field: "sales", order: "ASC" };
 }
 
-export const mountQuery = (type: FilterType, priority: PriorityTypes, page: number) => {
+export const mountQuery = (type: FilterTypes, priority: PriorityTypes, page: number) => {
   const itemsPerPage = 10
-  if (type === FilterType.ALL && priority === PriorityTypes.POPULARITY)
+  if (type === FilterTypes.ALL && priority === PriorityTypes.POPULARITY)
     return `
   query {
     allProducts(sortField: "sales", sortOrder: "DSC", page: ${page}, perPage: ${itemsPerPage}) {
