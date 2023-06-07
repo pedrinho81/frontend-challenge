@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={saira.className}>
         <DefaultProviders>
           <Header />
-          {children}
+          <body>{children}</body>
         </DefaultProviders>
       </body>
     </html>

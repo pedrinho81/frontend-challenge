@@ -29,7 +29,7 @@ export function CartControl() {
   return (
     <Container onClick={handleNavigate}>
       <CartIcon />
-      {cartItems.length > 0 && <CartCount>{cartItems.length}</CartCount>}
+      {cartItems.length > 0 && <CartCount data-testid="cart-count">{cartItems.length}</CartCount>}
     </Container>
   );
 }

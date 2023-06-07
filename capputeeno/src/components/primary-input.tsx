@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { SearchIcon } from "./icons/search-icon";
 import { InputHTMLAttributes } from "react";
+import { useFilter } from "@/hooks/useFilter";
 
 export const PrimaryInput = styled.input`
   width: 100%;
@@ -45,6 +46,7 @@ export function PrimaryInputWSearchIcon(props: InputProps) {
       <PrimaryInput
         onChange={(event) => props.handleChange(event.target.value)}
         {...props}
+        role="textbox"
       />
       <SearchIcon />
     </InputContainer>
