@@ -6,7 +6,7 @@ import { useProduct } from "@/hooks/useProduct";
 import styled from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
-import { DefaultPageLayout } from "@/components/default-page-layout";
+import { DefaultPageLayout } from "@/app/layout.styles";
 import { useContext } from "react";
 import { CartContext } from "@/contexts/cart-context";
 

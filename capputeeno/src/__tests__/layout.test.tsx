@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { Header } from "../components/header";
 import { CartContext } from "@/contexts/cart-context";
 import { ProductInCart } from "@/types/product";
-import { PrimaryInputWSearchIcon } from "@/components/primary-input";
+import {SearchInput  } from "@/components/header/components/SearchInput";
 
 function renderHeader(cartInitial: ProductInCart[] | []) {
   let cartItems = cartInitial;
@@ -34,7 +34,7 @@ describe("Header", () => {
   it("type and search into an input field", async () => {
     const typedValue = "Exemplo de valor";
     render(
-      <PrimaryInputWSearchIcon handleChange={() => ""} value={typedValue} />
+      <SearchInput handleChange={() => ""} value={typedValue} />
     );
     
     const inputElement = screen.getByRole("textbox");

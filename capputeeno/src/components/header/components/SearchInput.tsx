@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { SearchIcon } from "./icons/search-icon";
+import { SearchIcon } from "../../icons/search-icon";
 import { InputHTMLAttributes } from "react";
 import { useFilter } from "@/hooks/useFilter";
 
@@ -40,7 +40,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   handleChange: (value: string) => void;
 }
 
-export function PrimaryInputWSearchIcon(props: InputProps) {
+export function SearchInput(props: InputProps) {
   return (
     <InputContainer>
       <PrimaryInput

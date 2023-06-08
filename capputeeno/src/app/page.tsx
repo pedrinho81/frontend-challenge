@@ -3,7 +3,7 @@
 import { ProductsList } from "@/components/products-list";
 import styled from "styled-components";
 import { FilterBar } from "@/components/filter-bar";
-import { DefaultPageLayout } from "@/components/default-page-layout";
+import { DefaultPageLayout } from "@/app/layout.styles";
 import { Pagination } from "@/components/pagination";
 
 const PageWrapper = styled.main`

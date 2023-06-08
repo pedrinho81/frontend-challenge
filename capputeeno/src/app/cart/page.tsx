@@ -3,7 +3,7 @@
 import { BackBtn } from "@/components/back-button";
 import { CartItem } from "@/components/cart/cart-item";
 import { CartResume } from "@/components/cart/cart-resume";
-import { DefaultPageLayout } from "@/components/default-page-layout";
+import { DefaultPageLayout } from "@/app/layout.styles";
 import { CartContext } from "@/contexts/cart-context";
 import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/formatPrice";
