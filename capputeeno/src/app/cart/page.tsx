@@ -1,10 +1,10 @@
 "use client";
 
-import { BackBtn } from "@/components/back-button";
-import { CartItem } from "@/components/cart/cart-item";
-import { CartResume } from "@/components/cart/cart-resume";
+import { BackBtn } from "@/components/BackButton";
+import { CartItem } from "@/components/cart/CartItem";
+import { CartResume } from "@/components/cart/CartResume";
 import { DefaultPageLayout } from "@/app/layout.styles";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/CartContext";
 import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/formatPrice";
 import { useContext } from "react";

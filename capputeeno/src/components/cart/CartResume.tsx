@@ -1,6 +1,6 @@
 "use client";
 
-import { Divider } from "@/components/divider";
+import { Divider } from "@/components/Divider";
 import { styled } from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 interface CartResumeProps {

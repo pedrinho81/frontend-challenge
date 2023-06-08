@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { CartIcon } from "@/components/icons/cart-icon";
 import { useRouter } from "next/navigation";
 import { useContext } from "react";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/CartContext";
 
 const CartCount = styled.span`
   width: 1.25rem;

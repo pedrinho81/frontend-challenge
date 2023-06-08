@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { BackBtn } from "@/components/back-button";
+import { BackBtn } from "@/components/BackButton";
 import { useProduct } from "@/hooks/useProduct";
 import styled from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
 import { DefaultPageLayout } from "@/app/layout.styles";
 import { useContext } from "react";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/CartContext";
 
 const Container = styled.div`
   display: flex;

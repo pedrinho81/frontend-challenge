@@ -1,4 +1,4 @@
-import { FilterContext } from "@/contexts/filter-context";
+import { FilterContext } from "@/contexts/FilterContext";
 import { useContext } from "react";
 import { styled } from "styled-components";
 import { EnumType } from "typescript";

@@ -1,7 +1,7 @@
 "use client";
 import { styled } from "styled-components";
-import { FilterByType } from "./filter-by-type";
-import { FilterByPriority } from "./filter-by-priority";
+import { FilterByType } from "./FilterByType";
+import { FilterByPriority } from "./FilterByPriority";
 const FilterContainer = styled.div`
   display: flex;
   width: 100%;

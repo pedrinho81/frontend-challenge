@@ -1,7 +1,7 @@
 "use client";
 
-import { CartContextProvider } from "@/contexts/cart-context";
-import { FilterContextProvider } from "@/contexts/filter-context";
+import { CartContextProvider } from "@/contexts/CartContext";
+import { FilterContextProvider } from "@/contexts/FilterContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode } from "react";
 import { ThemeProvider } from "styled-components";

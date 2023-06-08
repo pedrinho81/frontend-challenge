@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Header } from "../components/header";
-import { CartContext } from "@/contexts/cart-context";
+import { CartContext } from "@/contexts/CartContext";
 import { ProductInCart } from "@/types/product";
 import {SearchInput  } from "@/components/header/components/SearchInput";
 

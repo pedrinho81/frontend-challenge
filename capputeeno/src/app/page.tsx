@@ -1,10 +1,10 @@
 "use client";
 
-import { ProductsList } from "@/components/products-list";
+import { ProductsList } from "@/components/ProductList";
 import styled from "styled-components";
-import { FilterBar } from "@/components/filter-bar";
+import { FilterBar } from "@/components/FilterBar";
 import { DefaultPageLayout } from "@/app/layout.styles";
-import { Pagination } from "@/components/pagination";
+import { Pagination } from "@/components/Pagination";
 
 const PageWrapper = styled.main`
   display: flex;
