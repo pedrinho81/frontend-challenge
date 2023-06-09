@@ -5,10 +5,10 @@ import { BackBtn } from "@/components/BackButton";
 import { useProduct } from "@/hooks/useProduct";
 import styled from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
-import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
 import { DefaultPageLayout } from "@/app/layout.styles";
 import { useContext } from "react";
 import { CartContext } from "@/contexts/CartContext";
+import { ProductInfo } from "@/components/product/ProductInfo";
 
 const Container = styled.div`
   display: flex;
@@ -61,116 +61,33 @@ const Container = styled.div`
   }
 `;
 
-const ProductInfo = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  span {
-    font-weight: 400;
-    font-size: 1rem;
-    color: var(--text-dark-2);
-    line-height: 150%;
-  }
-  h2 {
-    font-weight: 300;
-    font-size: 1.5rem;
-    @media (min-width: ${(props) => props.theme.tabletBreakpoint}) {
-      font-size: 2rem;
-    }
-    line-height: 150%;
-    color: var(--text-dark-2);
-    margin-top: 0.75rem;
-  }
-  span:nth-of-type(2) {
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 150%;
-    color: var(--shapes-dark);
-    margin-bottom: 1.5rem;
-  }
-  p {
-    font-weight: 400;
-    font-size: 0.75rem;
-    color: var(--text-dark-2);
-  }
-  div {
-    margin-bottom: 1.875rem;
-    h3 {
-      text-transform: uppercase;
-      margin-top: 3.625rem;
-      font-weight: 500;
-      font-size: 1rem;
-      line-height: 150%;
-      color: var(--text-dark);
-    }
-    p {
-      font-weight: 400;
-      font-size: 0.875rem;
-    }
-  }
-`;
-
 export default function Product({
   searchParams,
 }: {
   searchParams: { id: string };
 }) {
-  const { cartItems, updateLocalStorage } = useContext(CartContext);
-  const { data } = useProduct(searchParams.id);
+  const { data, isLoading } = useProduct(searchParams.id);
 
-  const handleAddToCart = () => {
-    const hasProductsInCart = cartItems.length > 0;
-    if (hasProductsInCart) {
-      let cartItemsArray = [...cartItems];
-      let existingProductIndex = cartItemsArray.findIndex(
-        (item: { id: string }) => item.id === searchParams.id
-      );
-
-      if (existingProductIndex != -1) {
-        cartItemsArray[existingProductIndex].quantity += 1;
-      } else {
-        data &&
-          cartItemsArray.push({ ...data, quantity: 1, id: searchParams.id });
-      }
-      updateLocalStorage(cartItemsArray);
-    } else {
-      data &&
-        updateLocalStorage([
-          {
-            ...data,
-            id: searchParams.id,
-            quantity: 1,
-          },
-        ]);
-    }
-  };
-
+  
   return (
     <DefaultPageLayout>
       <Container>
         <BackBtn navigate="/" />
-        <section>
-          <img src={data?.image_url} alt="" />
-          <div>
-            <ProductInfo>
-              <span>{data?.category}</span>
-              <h2>{data?.name}</h2>
-              <span> {formatPrice(data?.price_in_cents ?? 0)}</span>
-              <p>
-                *Frete de R$40,00 para todo o Brasil. Grátis para compras acima
-                de R$900,00.
-              </p>
-              <div>
-                <h3>Descrição</h3>
-                <p>{data?.description}</p>
-              </div>
-            </ProductInfo>
-            <button onClick={handleAddToCart}>
-              <ShoppingBagIcon />
-              Adicionar ao carrinho
-            </button>
-          </div>
-        </section>
+        {isLoading ? (
+          <h1>Carregando...</h1>
+        ) : data ? (
+          <ProductInfo
+            key={data.id}
+            id={data.id}
+            image_url={data.image_url}
+            name={data.name}
+            price_in_cents={data.price_in_cents}
+            category={data.category}
+            description={data.description}
+          />
+        ) : (
+          <h2>Nada por aqui...</h2>
+        )}
       </Container>
     </DefaultPageLayout>
   );
