@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { ProductInCart } from "@/types/product";
-
+import { KEY_LOCAL_STORAGE } from "@/constants";
 interface CartContextPros {
   cartItems: ProductInCart[] | [];
   updateLocalStorage: (newValue: ProductInCart[] | []) => void;
@@ -12,18 +12,17 @@ interface ProviderProps {
 }
 
 export function CartContextProvider({ children }: ProviderProps) {
-  const key = "@capputeeno: cart-items";
+
   const [cartItems, setCartItems] = useState<ProductInCart[] | []>([]);
   useEffect(() => {
     if (typeof window === "undefined") return;
-    let value = localStorage.getItem(key);
+    let value = localStorage.getItem(KEY_LOCAL_STORAGE);
     if (value) setCartItems(JSON.parse(value));
   }, []);
 
   const updateLocalStorage = (newValue: ProductInCart[] | []) => {
     setCartItems(newValue);
-
-    localStorage.setItem(key, JSON.stringify(newValue));
+    localStorage.setItem(KEY_LOCAL_STORAGE, JSON.stringify(newValue));
   };
 
   return (

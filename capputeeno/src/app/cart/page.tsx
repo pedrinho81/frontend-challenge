@@ -4,11 +4,9 @@ import { BackBtn } from "@/components/BackButton";
 import { CartItem } from "@/components/cart/CartItem";
 import { CartResume } from "@/components/cart/CartResume";
 import { DefaultPageLayout } from "@/app/layout.styles";
-import { CartContext } from "@/contexts/CartContext";
-import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/formatPrice";
-import { useContext } from "react";
 import { styled } from "styled-components";
+import { useCart } from "@/hooks";
 
 const Container = styled.div`
   display: flex;
@@ -54,30 +52,10 @@ const CartList = styled.ul`
 `;
 
 export default function CartPage() {
-  const { cartItems, updateLocalStorage } = useContext(CartContext);
+  const { handleUpdateQuantity, cartItems, calculateTotal, handleDeleteItem } =
+    useCart();
 
-  const calculateTotal = (cartItems: ProductInCart[]): number => {
-    return cartItems.reduce(
-      (sum, item) => (sum += item.price_in_cents * item.quantity),
-      0
-    );
-  };
   const cartTotal = formatPrice(calculateTotal(cartItems));
-
-  const handleUpdateQuantity = (id: string, quantity: number) => {
-    const newValue = cartItems.map((item) => {
-      if (item.id !== id) return item;
-      return { ...item, quantity: quantity };
-    });
-    updateLocalStorage(newValue);
-  };
-
-  const handleDeleteItem = (id: string) => {
-    const newValue = cartItems.filter((item) => {
-      if (item.id !== id) return item;
-    });
-    updateLocalStorage(newValue);
-  };
 
   return (
     <DefaultPageLayout>

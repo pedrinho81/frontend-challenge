@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 import { CartIcon } from "@/components/icons/cart-icon";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { CartContext } from "@/contexts/CartContext";
+import { useCart } from "@/hooks";
 
 const CartCount = styled.span`
   width: 1.25rem;
@@ -22,7 +21,7 @@ const Container = styled.div`
 `;
 
 export function CartControl() {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems } = useCart();
 
   const router = useRouter();
   const handleNavigate = () => router.push("/cart");

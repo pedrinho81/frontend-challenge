@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Product } from "@/@types/product";
 import { styled } from "styled-components";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/hooks";
 import { formatPrice } from "@/utils/formatPrice";
 import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
 
@@ -55,7 +55,7 @@ const Container = styled.div`
 `;
 
 export function ProductInfo(props: Product) {
-  const { handleAddToCart} = useCart(props)
+  const { handleAddToCart} = useCart()
   return (
     <section>
       <img src={props.image_url} alt="" />
@@ -73,7 +73,7 @@ export function ProductInfo(props: Product) {
             <p>{props.description}</p>
           </div>
         </Container>
-        <button onClick={() => handleAddToCart(props.id)}>
+        <button onClick={() => handleAddToCart(props)}>
           <ShoppingBagIcon />
           Adicionar ao carrinho
         </button>
