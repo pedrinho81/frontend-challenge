@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Header } from "../components/header";
 import { CartContext } from "@/contexts/CartContext";
-import { ProductInCart } from "@/types/product";
 import {SearchInput  } from "@/components/header/components/SearchInput";
-
-function renderHeader(cartInitial: ProductInCart[] | []) {
+import { useRouter } from "next/navigation";
+import { productsInCartMock } from "../mock/cart-product";
+function renderHeader(cartInitial = productsInCartMock) {
   let cartItems = cartInitial;
   const updateLocalStorage = () => {};
   return render(
@@ -19,17 +19,26 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("Header", () => {
-  it("should render the logo", () => {
-    const { getByText } = renderHeader([]);
+  it("shoul render correctly", () => {
+    const { getByText, getByRole } = renderHeader();
+
+    const Logo = getByText("Capputeeno");
+    const inputElement = getByRole("textbox");
+    const cartIcon = getByRole('button')
+
+    expect(Logo).toBeInTheDocument()
+    expect(inputElement).toBeInTheDocument()
+    expect(cartIcon).toBeInTheDocument()
+  })
+
+  it("should redirect to / when click in the logo", () => {
+    const { getByText } = renderHeader();
     const Logo = getByText("Capputeeno");
     expect(Logo).toBeInTheDocument();
-  });
+    fireEvent.click(Logo)
+    expect(global.window.location.pathname).toEqual('/');
+  })
 
-  it("should render the search input", () => {
-    const { getByRole } = renderHeader([]);
-    const input = getByRole("textbox");
-    expect(input).toBeInTheDocument();
-  });
 
   it("type and search into an input field", async () => {
     const typedValue = "Exemplo de valor";
@@ -45,23 +54,17 @@ describe("Header", () => {
     expect(inputElement).toHaveValue(typedValue);
   });
 
-  it("should display count cart when has value", async () => {
-    const { getByTestId } = renderHeader([
-      {
-        id: "1",
-        image_url: "",
-        name: "Product one",
-        price_in_cents: 10,
-        quantity: 1,
-      },
-    ]);
-    const countCart = getByTestId("cart-count");
-    expect(countCart).toBeInTheDocument();
+  it("should redirect to /cart page when click", () => {
+    const push = jest.fn();
+    (useRouter as jest.Mock).mockImplementation(() => ({
+      push,
+    }));
+    const { getByTestId } = renderHeader();
+    const cartLink = getByTestId("cart-count");
+    expect(cartLink).toBeInTheDocument();
+    fireEvent.click(cartLink);
+    expect(push).toHaveBeenCalled();
+    expect(push).toHaveBeenCalledWith("/cart");   
   });
 
-  it("should not display count cart when hasn't value", async () => {
-    const { queryByTestId } = renderHeader([]);
-    const countCart = queryByTestId("cart-count");
-    expect(countCart).not.toBeInTheDocument();
-  });
 });
