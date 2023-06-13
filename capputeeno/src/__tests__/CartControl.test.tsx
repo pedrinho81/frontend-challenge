@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { CartControl } from "../components/header/components/CartControl";
 import { CartContext } from "@/contexts/CartContext";
 import { useRouter } from "next/navigation";
-import { productsInCartMock } from "../mock/cart-product";
+import { productsInCartMock } from "../mocks/cart-product";
 function renderCartControl(
   cartInitial = productsInCartMock
 ) {

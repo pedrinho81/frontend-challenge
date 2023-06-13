@@ -9,3 +9,4 @@ export const productsInCartMock: ProductInCart[] = [
     quantity: 1
   },
 ];
+

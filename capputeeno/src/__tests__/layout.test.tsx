@@ -4,7 +4,7 @@ import { Header } from "../components/header";
 import { CartContext } from "@/contexts/CartContext";
 import {SearchInput  } from "@/components/header/components/SearchInput";
 import { useRouter } from "next/navigation";
-import { productsInCartMock } from "../mock/cart-product";
+import { productsInCartMock } from "../mocks/cart-product";
 function renderHeader(cartInitial = productsInCartMock) {
   let cartItems = cartInitial;
   const updateLocalStorage = () => {};
