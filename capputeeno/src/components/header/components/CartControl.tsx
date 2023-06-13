@@ -27,7 +27,7 @@ export function CartControl() {
   const router = useRouter();
   const handleNavigate = () => router.push("/cart");
   return (
-    <Container onClick={handleNavigate}>
+    <Container role="button" onClick={handleNavigate}>
       <CartIcon />
       {cartItems.length > 0 && <CartCount data-testid="cart-count">{cartItems.length}</CartCount>}
     </Container>
