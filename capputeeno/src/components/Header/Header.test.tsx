@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Header } from ".";
+import { Header } from "./Header";
 import { CartContextProvider } from "@/contexts/CartContext";
-import { SearchInput } from "@/components/header/components/SearchInput";
+import { SearchInput } from "@/components/Header/components/SearchInput";
 import { useRouter } from "next/navigation";
 
 jest.mock("next/navigation", () => ({
