@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { ProductInCart } from "@/types/product";
 import { formatPrice } from "@/utils/formatPrice";
-import { ChangeEvent } from "react";
 import { styled } from "styled-components";
-import { DeleteIcon } from "../icons/delete-icon";
+import { DeleteIcon } from "@/components/Icons";
 
 interface CartItemProps {
   product: ProductInCart;
@@ -93,9 +92,6 @@ export function CartItem({
   handleUpdateQuantity,
   handleDelete,
 }: CartItemProps) {
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    handleUpdateQuantity(product.id, Number(e.target.value));
-  };
   return (
     <Item>
       <button onClick={() => handleDelete(product.id)} aria-label="Deletar">
@@ -106,7 +102,12 @@ export function CartItem({
         <h4>{product.name}</h4>
         <p>{product.description}</p>
         <div>
-          <SelectQuantity value={product.quantity} onChange={handleChange}>
+          <SelectQuantity
+            value={product.quantity}
+            onChange={({ target }) =>
+              handleUpdateQuantity(product.id, Number(target.value))
+            }
+          >
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>

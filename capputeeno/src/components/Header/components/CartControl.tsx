@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { CartIcon } from "@/components/icons/cart-icon";
+import { CartIcon } from "@/components/Icons";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/hooks";
 

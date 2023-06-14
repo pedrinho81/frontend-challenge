@@ -1,9 +1,5 @@
-import { FilterContext } from "@/contexts/FilterContext";
-import { useContext } from "react";
 import { styled } from "styled-components";
-import { EnumType } from "typescript";
-import { BackPageIcon } from "./icons/back-page-icon";
-import { NextPageIcon } from "./icons/next-page-icon";
+import { BackPageIcon, NextPageIcon} from "@/components/Icons";
 import { useFilter } from "@/hooks/useFilter";
 
 interface CountProps {

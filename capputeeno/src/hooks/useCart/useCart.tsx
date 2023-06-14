@@ -49,5 +49,7 @@ export function useCart() {
     });
     updateLocalStorage(newValue);
   };
-  return { cartItems, handleAddToCart, handleUpdateQuantity, calculateTotal, handleDeleteItem };
+  const deliveryFee = calculateTotal(cartItems) > 90000 ? 0 : 4000;
+  const cartTotalWithDelivery = calculateTotal(cartItems) + deliveryFee;
+  return { cartItems, handleAddToCart, handleUpdateQuantity, calculateTotal, handleDeleteItem, deliveryFee, cartTotalWithDelivery };
 }

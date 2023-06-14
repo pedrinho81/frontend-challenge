@@ -41,3 +41,4 @@ export function ProductsList() {
     </ListContainer>
   );
 }
+//TODO: LOADING E VERIFICAÇÕES COM &&

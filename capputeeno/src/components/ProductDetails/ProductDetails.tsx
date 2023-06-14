@@ -3,7 +3,7 @@ import { Product } from "@/@types/product";
 import { styled } from "styled-components";
 import { useCart } from "@/hooks";
 import { formatPrice } from "@/utils/formatPrice";
-import { ShoppingBagIcon } from "@/components/icons/shopping-bag-icon";
+import { ShoppingBagIcon } from "@/components/Icons/shopping-bag-icon";
 
 const Container = styled.div`
   display: flex;

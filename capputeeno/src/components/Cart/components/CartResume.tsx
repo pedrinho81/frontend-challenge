@@ -1,10 +1,12 @@
 "use client";
 
-import { Divider } from "@/components/Divider";
+import {  Divider  } from "@/components/Divider";
 import { styled } from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 interface CartResumeProps {
   calculateTotal: number;
+  deliveryFee: number;
+  cartTotalWithDelivery: number;
 }
 const CartResultContainer = styled.div`
   display: flex;
@@ -64,14 +66,12 @@ const ShopBtn = styled.button`
   cursor: pointer;
   font-weight: 500;
 `;
-export function CartResume({ calculateTotal }: CartResumeProps) {
-
-
-
-  const deliveryFee = calculateTotal > 90000 ? 0 : 4000;
-  const cartTotalWithDelivery = formatPrice(
-    calculateTotal + deliveryFee
-  );
+export function CartResume({
+  calculateTotal,
+  cartTotalWithDelivery,
+  deliveryFee,
+}: CartResumeProps) {
+ 
 
   return (
     <CartResultContainer>
@@ -88,7 +88,7 @@ export function CartResume({ calculateTotal }: CartResumeProps) {
         <Divider />
         <TotalItem isBold>
           <p>Total</p>
-          <p>{cartTotalWithDelivery}</p>
+          <p>{formatPrice(cartTotalWithDelivery)}</p>
         </TotalItem>
         <ShopBtn>FINALIZAR COMPRA</ShopBtn>
       </div>

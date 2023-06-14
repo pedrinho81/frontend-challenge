@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ArrowBackIcon } from "@/components/icons/back-icon";
+import { ArrowBackIcon } from "@/components/Icons";
 import { useRouter } from "next/navigation";
 
 interface BackBtnProps {

@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Saira } from "next/font/google";
-import { Header } from "@/components/header";
+import { Header } from "@/components/Header";
 import { DefaultProviders } from "@/providers/default-providers";
 
 const saira = Saira({

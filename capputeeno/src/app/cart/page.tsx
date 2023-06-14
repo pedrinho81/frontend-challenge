@@ -1,8 +1,7 @@
 "use client";
 
 import { BackBtn } from "@/components/BackButton";
-import { CartItem } from "@/components/cart/CartItem";
-import { CartResume } from "@/components/cart/CartResume";
+import { CartItem, CartResume } from "@/components/Cart";
 import { DefaultPageLayout } from "@/app/layout.styles";
 import { formatPrice } from "@/utils/formatPrice";
 import { styled } from "styled-components";
@@ -52,8 +51,14 @@ const CartList = styled.ul`
 `;
 
 export default function CartPage() {
-  const { handleUpdateQuantity, cartItems, calculateTotal, handleDeleteItem } =
-    useCart();
+  const {
+    handleUpdateQuantity,
+    cartItems,
+    calculateTotal,
+    handleDeleteItem,
+    cartTotalWithDelivery,
+    deliveryFee,
+  } = useCart();
 
   const cartTotal = formatPrice(calculateTotal(cartItems));
 
@@ -78,7 +83,11 @@ export default function CartPage() {
             ))}
           </CartList>
         </CartListContainer>
-        <CartResume calculateTotal={calculateTotal(cartItems)} />
+        <CartResume
+          cartTotalWithDelivery={cartTotalWithDelivery}
+          deliveryFee={deliveryFee}
+          calculateTotal={calculateTotal(cartItems)}
+        />
       </Container>
     </DefaultPageLayout>
   );

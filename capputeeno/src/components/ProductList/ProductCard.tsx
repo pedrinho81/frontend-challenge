@@ -2,7 +2,7 @@
 import { styled } from "styled-components";
 import { formatPrice } from "@/utils/formatPrice";
 import { useRouter } from "next/navigation";
-import { Divider } from "./Divider";
+import { Divider } from "../Divider";
 interface ProductCardProps {
   id: string;
   image: string;
