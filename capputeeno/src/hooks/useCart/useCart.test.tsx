@@ -2,7 +2,7 @@ import { renderHook } from "@testing-library/react";
 import { waitFor, act } from "@testing-library/react";
 import { CartContextProvider } from "@/contexts/CartContext";
 import { useCart } from "./useCart";
-import { productsInCartMock } from "@/mocks/cart-product";
+import { productsMock } from "@/mocks/product";
 
 describe("useCart", () => {
   it("should get items from local storage", async () => {
@@ -20,7 +20,7 @@ describe("useCart", () => {
     expect(result.current.cartItems).not.toHaveLength(1);
 
     act(() => {
-      result.current.handleAddToCart(productsInCartMock[0]);
+      result.current.handleAddToCart(productsMock[0]);
     });
     await waitFor(() => {
       expect(result.current.cartItems[0].name).toEqual("My Product");
@@ -33,7 +33,7 @@ describe("useCart", () => {
     });
 
     act(() => {
-      result.current.handleAddToCart(productsInCartMock[0]);
+      result.current.handleAddToCart(productsMock[0]);
     });
 
     await waitFor(() => {
@@ -48,7 +48,7 @@ describe("useCart", () => {
     });
 
     act(() => {
-      result.current.handleAddToCart(productsInCartMock[1]);
+      result.current.handleAddToCart(productsMock[1]);
     });
 
     await waitFor(() => {
@@ -65,7 +65,7 @@ describe("useCart", () => {
     const selectedQuantity = 4;
     act(() => {
       result.current.handleUpdateQuantity(
-        productsInCartMock[0].id,
+        productsMock[0].id,
         selectedQuantity
       );
     });

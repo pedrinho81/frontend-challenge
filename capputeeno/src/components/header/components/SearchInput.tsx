@@ -37,14 +37,14 @@ const InputContainer = styled.div`
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   value: string;
-  handleChange: (value: string) => void;
+  handleChangeSearch: (value: string) => void;
 }
 
 export function SearchInput(props: InputProps) {
   return (
     <InputContainer>
       <PrimaryInput
-        onChange={(event) => props.handleChange(event.target.value)}
+        onChange={(event) => props.handleChangeSearch(event.target.value)}
         {...props}
         role="textbox"
       />

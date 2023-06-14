@@ -35,7 +35,7 @@ export function Header() {
       <div>
         <SearchInput
           placeholder="Procurando por algo específico?"
-          handleChange={setSearch}
+          handleChangeSearch={setSearch}
           value={search}
         />
         <CartControl />
